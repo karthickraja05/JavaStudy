@@ -22,12 +22,16 @@ public class Simple2{
         Label label = new Label("Simple App Form");
         TextField textField = new TextField("Enter your name: ");
         TextArea textArea = new TextArea();
-        
+        Choice choice = new Choice();
+        choice.add("India");
+        choice.add("USA");
+        choice.add("Iran");
+
         frame.add(label);
         frame.add(textField);
         frame.add(textArea);
+        frame.add(choice);
         frame.add(btn);
-        // frame.add(btn);
 
         // Add ActionListener to button
         btn.addActionListener(new ActionListener() {
