@@ -7,6 +7,8 @@ public class TestSync {
         Thread team2 = new Thread(new Team(counter));
         team1.start();
         team2.start();
+        team1.setName("team a thread");
+        team2.setName("team b thread");
         try {
             team1.join();
             team2.join();
@@ -40,5 +42,6 @@ class Team implements Runnable{
         for(int i = 0; i < 1000; i++){
             counter.increment();
         }
+        System.out.println(Thread.currentThread().getName());
     }
 }
