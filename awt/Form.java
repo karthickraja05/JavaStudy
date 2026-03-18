@@ -94,6 +94,12 @@ public class Form {
                 message.setText("");
             }
         }, 2000);
+
+        // timer.schedule(new TimerTask() {
+        //     public void run() {
+        //         message.setText("Added by another");
+        //     }
+        // }, 4000);
     }
 
     
