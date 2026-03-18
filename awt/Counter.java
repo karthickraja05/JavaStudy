@@ -21,13 +21,38 @@ public class Counter {
         frame.add(value);
         frame.add(btn1);
 
-        btn1.addActionListener(new ButtonIncrement(counter,value));
-        btn2.addActionListener(new ButtonDecrement(counter,value));
+        // btn1.addActionListener(new ButtonIncrement(counter,value));
+        // btn2.addActionListener(new ButtonDecrement(counter,value));
+
+        btn1.addActionListener(new SingleButton(counter,value,"add"));
+        btn2.addActionListener(new SingleButton(counter,value,"remove"));
         frame.setSize(600,600);
         frame.setLayout(null);
         
         frame.setVisible(true);
 
+    }
+}
+
+class SingleButton implements ActionListener{
+    Counter counter;
+    Label label;
+    String type;
+    SingleButton(Counter counter, Label label,String type){
+        this.counter = counter;
+        this.label = label;
+        this.type = type;
+    }
+
+    public void actionPerformed(ActionEvent e){
+        if(type.equals("add")){
+            counter.counterValue++; // increase
+        }else{
+            if(counter.counterValue > 0){
+                counter.counterValue--;
+            }
+        }
+        label.setText(String.valueOf(counter.counterValue)); // update UI
     }
 }
 
