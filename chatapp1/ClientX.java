@@ -14,9 +14,12 @@ public class ClientX {
     JButton btn1;
     JTextField input1;
     JLabel receivedMsg;
+    SocketExmple socket;
 
     ClientX(){
         frame = new JFrame();
+        socket = new SocketExmple();
+
         label = new JLabel("Enter your Message:");
         label.setBounds(100,100,200,50);
         
@@ -51,7 +54,8 @@ public class ClientX {
                     errLabel.setText("Please enter your message!!!");
                     removeMessage(errLabel);
                 }else{
-                    
+                    socket.socketSender(msg);
+                    input1.setText("");
                 }
             }
         });
@@ -72,7 +76,10 @@ public class ClientX {
     }
 
     public static void main(String[] args) {
+        
         ClientX client = new ClientX();
         client.render();
+        
+        
     }
 }
